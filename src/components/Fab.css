@@ -1,0 +1,87 @@
+/* Container for the FAB */
+.fab-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Main FAB button */
+  .fab-main {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .fab-main:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+  }
+  
+  /* FAB menu container */
+  .fab-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  
+  .fab-menu.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Individual FAB options */
+  .fab-option {
+    width: 50px;
+    height: 50px;
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #495057;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+  }
+  
+  .fab-option:hover {
+    background-color: #e2e6ea;
+    color: #007bff;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive spacing for smaller screens */
+  @media (max-width: 768px) {
+    .fab-main {
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+    }
+  
+    .fab-option {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+  }
+  

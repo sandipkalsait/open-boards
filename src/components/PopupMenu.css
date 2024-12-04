@@ -1,0 +1,64 @@
+/* Popup Menu Container */
+.popup-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Trigger Button */
+  .menu-trigger {
+    display: flex;
+    align-items: center;
+    background-color: #24292f;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    gap: 8px;
+  }
+  
+  .menu-trigger:hover {
+    background-color: #0366d6;
+  }
+  
+  /* Popup Content */
+  .menu-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 8px 0;
+    width: 200px;
+    z-index: 10;
+  }
+  
+  /* Menu Items */
+  .menu-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-content li {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    gap: 8px;
+    color: #24292f;
+  }
+  
+  .menu-content li:hover {
+    background-color: #f6f8fa;
+  }
+  
+  /* Icons */
+  .menu-content li svg {
+    color: #0366d6;
+  }
+  

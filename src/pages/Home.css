@@ -1,0 +1,51 @@
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.workspace {
+  border: 1px solid #ddd;
+  padding: 5rem;
+  height: 60vh;
+  margin-top: 20px;
+  background-color: white;
+  overflow-x: auto;
+  overflow-y: auto;
+  position: relative; /* To make sure the FAB stays fixed */
+  transition: all 0.3s ease;
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 0;
+  padding: 2rem; /* Reduce padding in fullscreen for better space */
+  top: 0; /* Align to top */
+  position: absolute;
+  left: 0;
+}
+
+.fullscreen-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fullscreen-toggle:hover {
+  background-color: #0056b3;
+}
+
+/* Style for FAB button */
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure the FAB stays on top */
+}
