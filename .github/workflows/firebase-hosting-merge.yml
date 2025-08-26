@@ -12,15 +12,34 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # Checkout repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      # Set up Node.js (for building the project)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # Build project (ensures build/dist folder exists)
+      - name: Build Project
+        run: npm run build
+
+      # Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_OPEN_BOARDS }}
           channelId: live
           projectId: open-boards
 
+      # Email notification
       - name: Send Email Notification
         if: always() # Run even if deploy fails
         uses: dawidd6/action-send-mail@v3

@@ -15,14 +15,33 @@ jobs:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # Checkout repo
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # Build project
+      - name: Build Project
+        run: npm run build
+
+      # Deploy to Firebase Hosting (preview channel)
+      - name: Deploy to Firebase Hosting (Preview)
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_OPEN_BOARDS }}
           projectId: open-boards
 
+      # Email notification
       - name: Send Email Notification
         if: always() # Always runs, success or failure
         uses: dawidd6/action-send-mail@v3
